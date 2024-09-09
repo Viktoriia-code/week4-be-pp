@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const auth = require("../middleware/auth");
 
 const {
   getAllUser,
@@ -10,7 +11,7 @@ const {
 } = require("../controllers/userControllers");
 
 // ROUTES
-
+router.use(auth);
 // GET /tours
 router.get("/", getAllUser);
 
